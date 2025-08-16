@@ -1,0 +1,35 @@
+x-logging: &default-logging
+    driver: "json-file"
+    options:
+        max-file: "5"
+        max-size: "10m"
+
+services:
+    server:
+        build:
+            context: .
+        environment:
+            NODE_ENV: production
+            REDIS_HOST: redis
+            REDIS_PORT: 6379
+        ports:
+            - "127.0.0.1:3000:3000"
+        logging: *default-logging
+        depends_on:
+            - redis
+
+    redis:
+        image: redis:latest
+        ports:
+            - "127.0.0.1:6379:6379"
+        volumes:
+            - redis_data:/data
+        logging: *default-logging
+        command: redis-server --appendonly yes
+
+volumes:
+    redis_data:
+
+networks:
+    default:
+        driver: bridge
