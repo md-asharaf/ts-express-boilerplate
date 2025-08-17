@@ -5,7 +5,7 @@ import { redis } from "@/config/database";
 import catchAsync from "@/handlers/async.handler";
 import { generateOtp, verifyOtp } from "@/services/otp.service";
 import userService from "@/services/user.service";
-import { hashPassword, verifyPassword } from "@/tools/encryption";
+import { hash, verify } from "@/tools/encryption";
 import { APIError } from "@/utils/APIError";
 import z from "zod";
 import emailService from "@/services/email.service";
@@ -21,13 +21,13 @@ const initRegister = catchAsync(async (req: Request, res: Response) => {
     if (existingUser) {
         throw new APIError(400, "User already exists with this email.");
     }
-    const encryptedPassword = await hashPassword(password as string);
+    const encryptedPassword = await hash(password as string);
     await redis.setValue(
         `register:${email}`,
         JSON.stringify({
             email,
             name,
-            password: encryptedPassword.hashedPassword,
+            password: encryptedPassword,
         }),
         60 * 5,
     ); // store for 5 mins
@@ -94,7 +94,7 @@ const login = catchAsync(async (req: Request, res: Response) => {
         throw new APIError(404, "User not found.");
     }
 
-    const isPasswordValid = await verifyPassword(password as string, user.password);
+    const isPasswordValid = await verify(password as string, user.password);
     if (!isPasswordValid) {
         throw new APIError(401, "Invalid password.");
     }

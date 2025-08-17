@@ -1,39 +1,30 @@
-import { hash, verify } from "argon2";
+import argon from "argon2";
 
-export async function hashPassword(
-	password: string,
-): Promise<{ status: string; message: string; hashedPassword?: string }> {
-	try {
-		const hashedPassword = await hash(password);
-
-		return {
-			status: "success",
-			message: "Password hashed successfully",
-			hashedPassword,
-		};
-	} catch (error) {
-		return {
-			status: "error",
-			message: "Failed to hash password",
-		};
-	}
+function serializePayload(payload: string | object): string {
+    return typeof payload === "string" ? payload : JSON.stringify(payload);
 }
 
-export async function verifyPassword(
-	password: string,
-	hashedPassword: string,
-): Promise<{ status: string; message: string; isValid?: boolean }> {
-	try {
-		const isValid = await verify(hashedPassword, password);
+export async function hash(
+    payload: string | object,
+): Promise<string> {
+    try {
+        const serialized = serializePayload(payload);
+        const hashed = await argon.hash(serialized);
+        return hashed
+    } catch (error) {
+        throw error;
+    }
+}
 
-		return {
-			status: isValid ? "success" : "error",
-			message: isValid ? "Password verified successfully" : "Invalid password",
-		};
-	} catch (error) {
-		return {
-			status: "error",
-			message: "Failed to verify password",
-		};
-	}
+export async function verify(
+    payload: string | object,
+    hashed: string,
+): Promise<boolean> {
+    try {
+        const serialized = serializePayload(payload);
+        const isValid = await argon.verify(hashed, serialized);
+        return isValid;
+    } catch (error) {
+        throw error;
+    }
 }
