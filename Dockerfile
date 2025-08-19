@@ -11,6 +11,7 @@ COPY . .
 
 RUN npx prisma generate
 RUN npm run build
+RUN npm prune --production
 
 
 FROM node:${NODE_VERSION}-alpine AS production
@@ -25,10 +26,10 @@ COPY --from=builder /usr/src/template/prisma ./prisma
 COPY --from=builder /usr/src/template/.env ./
 
 # Using the correct port from your application
-EXPOSE 6789
+EXPOSE 3000
 
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD curl -f http://localhost:6789/health || exit 1
+  CMD curl -f http://localhost:3000/health || exit 1
 
 # Run with module-alias for path aliases
 CMD ["node", "-r", "module-alias/register", "dist/index.js"]
