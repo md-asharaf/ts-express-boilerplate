@@ -8,7 +8,7 @@ export const UserCreateSchema = z.object({
 });
 
 export const UserUpdateSchema = UserCreateSchema.partial().omit({
-    email: true
+    email: true,
 });
 
 export const UserSchema = z.object({
@@ -32,7 +32,6 @@ export const AdminSchema = z.object({
     name: z.string(),
     email: z.string().email(),
 });
-
 
 export type UserCreate = z.infer<typeof UserCreateSchema>;
 export type UserUpdate = z.infer<typeof UserUpdateSchema>;

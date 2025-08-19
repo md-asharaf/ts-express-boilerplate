@@ -13,8 +13,8 @@ const login = catchAsync(async (req: Request, res: Response) => {
         throw new APIError(400, "Email is required");
     }
     const adminCheck = await db.admin.findUnique({
-        where: { email}
-    })
+        where: { email },
+    });
     if (!adminCheck) {
         throw new APIError(404, "Admin not found");
     }
@@ -28,7 +28,7 @@ const login = catchAsync(async (req: Request, res: Response) => {
 });
 
 const verifyLogin = catchAsync(async (req: Request, res: Response) => {
-    const { otp, email } = req.body as VerifyLogin
+    const { otp, email } = req.body as VerifyLogin;
     if (!otp || !email) {
         throw new APIError(400, "OTP and email are required");
     }
@@ -37,8 +37,8 @@ const verifyLogin = catchAsync(async (req: Request, res: Response) => {
         throw new APIError(400, "Failed to verify otp");
     }
     const admin = await db.admin.findUnique({
-        where: { email}
-    })
+        where: { email },
+    });
     if (!admin) {
         throw new APIError(404, "Admin not found");
     }
@@ -47,7 +47,7 @@ const verifyLogin = catchAsync(async (req: Request, res: Response) => {
     const token = generateTokens({
         id: admin.id,
         accountType: AccountType.ADMIN,
-        jti
+        jti,
     });
     res.json({
         message: "Admin logged in successfully",

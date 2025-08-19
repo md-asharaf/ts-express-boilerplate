@@ -1,9 +1,9 @@
-
 # TypeScript Express Boilerplate
 
 A scalable, production-ready backend template built with **Express.js** and **TypeScript**. Includes best practices for structure, security, logging, and microservices integration.
 
 ## Features
+
 - **TypeScript** for type safety and maintainability
 - **Express.js** for fast, flexible routing
 - **Prisma ORM** for PostgreSQL database management
@@ -37,31 +37,35 @@ compose.yaml       # Docker Compose for local dev
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js v20+
 - Docker & Docker Compose (for containerized setup)
 
 ### Local Development
+
 1. Install dependencies:
-	 ```bash
-	 npm install
-	 ```
+    ```bash
+    npm install
+    ```
 2. Set up environment variables in `.env` (see example below).
 3. Start the development server:
-	 ```bash
-	 npm run dev
-	 ```
+    ```bash
+    npm run dev
+    ```
 4. Access the API at [http://localhost:3000](http://localhost:3000)
 
 ### Dockerized Development
+
 1. Build and start services:
-	 ```bash
-	 docker compose up --build
-	 ```
+    ```bash
+    docker compose up --build
+    ```
 2. The app runs at [http://localhost:3000](http://localhost:3000)
 
 ## Environment Variables
 
 Create a `.env` file in the root directory:
+
 ```
 DATABASE_URL=postgresql://user:password@localhost:5432/dbname
 REDIS_HOST=localhost
@@ -72,9 +76,11 @@ JWT_SECRET=your_jwt_secret
 ## API Endpoints
 
 ### Health Check
+
 - `GET /health` — Returns server status
 
 ### Auth (v1)
+
 - `POST /v1/auth/user/login` — User login
 - `POST /v1/auth/user/register` — Start registration
 - `POST /v1/auth/user/register/verify` — Verify registration
@@ -96,10 +102,10 @@ Uses Prisma ORM with PostgreSQL. Define models in `prisma/schema.prisma` and run
 ## Testing & Linting
 
 - Format & lint code with [Biome](https://biomejs.dev/):
-	```bash
-	npm run lint
-	npm run format
-	```
+    ```bash
+    npm run lint
+    npm run format
+    ```
 
 ## Deployment
 

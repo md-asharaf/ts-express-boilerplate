@@ -5,5 +5,5 @@ import { logger } from "./config/logger";
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
-	logger.info(`[SERVER] backend is live on http://localhost:${PORT}`);
+    logger.info(`[SERVER] backend is live on http://localhost:${PORT}`);
 });

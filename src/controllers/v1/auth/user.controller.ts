@@ -9,8 +9,19 @@ import { hash, verify } from "@/tools/encryption";
 import { APIError } from "@/utils/APIError";
 import z from "zod";
 import emailService from "@/services/email.service";
-import { ForgotPassword, Login, RefreshToken, Register,VerifyRegistration } from "@/@types/interface";
-import { AccountType, generateTokens, Payload, verifyToken } from "@/services/token.service";
+import {
+    ForgotPassword,
+    Login,
+    RefreshToken,
+    Register,
+    VerifyRegistration,
+} from "@/@types/interface";
+import {
+    AccountType,
+    generateTokens,
+    Payload,
+    verifyToken,
+} from "@/services/token.service";
 
 const initRegister = catchAsync(async (req: Request, res: Response) => {
     const { email, password, name } = req.body as Register;
@@ -68,7 +79,7 @@ const verifyRegistration = catchAsync(async (req: Request, res: Response) => {
     const { accessToken, refreshToken } = generateTokens({
         accountType: AccountType.USER,
         id: user.id,
-        jti
+        jti,
     });
     // Clean up Redis data after successful registration
     await redis.deleteValue(`register:${email}`);
@@ -78,7 +89,7 @@ const verifyRegistration = catchAsync(async (req: Request, res: Response) => {
         message: "User registered successfully.",
         tokens: {
             accessToken,
-            refreshToken
+            refreshToken,
         },
     });
     return;
@@ -99,7 +110,11 @@ const login = catchAsync(async (req: Request, res: Response) => {
         throw new APIError(401, "Invalid password.");
     }
     const jti = uuidv4();
-    const tokens = generateTokens({ id: user.id, jti, accountType: AccountType.USER });
+    const tokens = generateTokens({
+        id: user.id,
+        jti,
+        accountType: AccountType.USER,
+    });
     res.status(200).json({
         success: true,
         message: "User logged in successfully.",
@@ -211,7 +226,7 @@ const login = catchAsync(async (req: Request, res: Response) => {
 // });
 
 const resendOtpToMail = catchAsync(async (req: Request, res: Response) => {
-    const { email } = req.body as ForgotPassword
+    const { email } = req.body as ForgotPassword;
     if (!email) {
         throw new APIError(400, "Missing required fields: email is required");
     }
@@ -225,7 +240,10 @@ const resendOtpToMail = catchAsync(async (req: Request, res: Response) => {
         // Check if registration session exists
         const registrationData = await redis.getValue(`register:${email}`);
         if (!registrationData) {
-            throw new APIError(400, "No registration session found. Please start registration process again.");
+            throw new APIError(
+                400,
+                "No registration session found. Please start registration process again.",
+            );
         }
 
         // Send OTP
@@ -245,7 +263,7 @@ const resendOtpToMail = catchAsync(async (req: Request, res: Response) => {
         if (error instanceof z.ZodError) {
             throw new APIError(
                 400,
-                error.errors.map((e) => e.message).join(", ")
+                error.errors.map((e) => e.message).join(", "),
             );
         }
         console.error("Error sending OTP:", error);
@@ -253,13 +271,9 @@ const resendOtpToMail = catchAsync(async (req: Request, res: Response) => {
     }
 });
 
-const forgotPassword = catchAsync(async (req: Request, res: Response) => {
+const forgotPassword = catchAsync(async (req: Request, res: Response) => {});
 
-});
-
-const resetPassword = catchAsync(async (req: Request, res: Response) => {
-
-});
+const resetPassword = catchAsync(async (req: Request, res: Response) => {});
 
 const refreshTokens = catchAsync(async (req: Request, res: Response) => {
     const { token } = req.body as RefreshToken;
@@ -284,7 +298,7 @@ const refreshTokens = catchAsync(async (req: Request, res: Response) => {
         const { accessToken, refreshToken: newRefreshToken } = generateTokens({
             accountType: AccountType.USER,
             id: user.id,
-            jti
+            jti,
         });
 
         // Send response
@@ -304,7 +318,7 @@ const refreshTokens = catchAsync(async (req: Request, res: Response) => {
         if (error instanceof z.ZodError) {
             throw new APIError(
                 400,
-                error.errors.map((e) => e.message).join(", ")
+                error.errors.map((e) => e.message).join(", "),
             );
         }
         console.error("Error refreshing tokens:", error);

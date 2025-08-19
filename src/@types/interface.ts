@@ -12,9 +12,7 @@ export const VerifyRegistrationSchema = z.object({
     email: z.string().email(),
     otp: z.string().min(1, "Verification otp is required"),
 });
-export type VerifyRegistration = z.infer<
-    typeof VerifyRegistrationSchema
->;
+export type VerifyRegistration = z.infer<typeof VerifyRegistrationSchema>;
 
 export const LoginSchema = z.object({
     email: z.string().email("Invalid email format").min(1, "Email is required"),
@@ -56,8 +54,6 @@ export const ChangePasswordSchema = z.object({
 export const RefreshTokenSchema = z.object({
     token: z.string().min(1, "Refresh token is required"),
 });
-
-
 
 // Query Schema for common query parameters
 export const QuerySchema = z.object({
@@ -113,7 +109,6 @@ export const VerifyLoginSchema = VerifyRegistrationSchema;
 export const AdminLoginSchema = LoginSchema.omit({ password: true });
 export const ForgotPasswordSchema = AdminLoginSchema;
 export const AdminRegisterSchema = RegisterSchema.omit({ password: true });
-
 
 export type Query = z.infer<typeof QuerySchema>;
 export type ForgotPassword = z.infer<typeof ForgotPasswordSchema>;

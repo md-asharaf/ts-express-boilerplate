@@ -1,11 +1,7 @@
 import { db } from "@/config/database";
 import { logger } from "@/config/logger";
 import { APIError } from "@/utils/APIError";
-import {
-    UserCreateSchema,
-    type UserCreate,
-    type User,
-} from "@/@types/schema";
+import { UserCreateSchema, type UserCreate, type User } from "@/@types/schema";
 import { z } from "zod";
 class UserService {
     /**
@@ -23,7 +19,7 @@ class UserService {
             if (existingUser) {
                 throw new APIError(
                     409,
-                    "User with this email already exists. Please use a different email."
+                    "User with this email already exists. Please use a different email.",
                 );
             }
             //check if admin exists with the same email
@@ -33,7 +29,7 @@ class UserService {
             if (adminExists) {
                 throw new APIError(
                     409,
-                    "Admin with this email already exists. Please use a different email."
+                    "Admin with this email already exists. Please use a different email.",
                 );
             }
             // Create the user
@@ -42,7 +38,7 @@ class UserService {
             });
 
             logger.info(
-                `[USER_SERVICE] User created successfully with ID: ${user.id}`
+                `[USER_SERVICE] User created successfully with ID: ${user.id}`,
             );
             return user;
         } catch (error: any) {
@@ -52,7 +48,7 @@ class UserService {
             if (error instanceof z.ZodError) {
                 throw new APIError(
                     400,
-                    error.errors.map((e) => e.message).join(", ")
+                    error.errors.map((e) => e.message).join(", "),
                 );
             }
             logger.error("[USER_SERVICE] Error creating user:", error);
@@ -65,7 +61,7 @@ class UserService {
      */
     async getUserById(
         userId: string,
-        includeRelations: boolean = false
+        includeRelations: boolean = false,
     ): Promise<User | null> {
         try {
             const user = await db.user.findUnique({
@@ -86,13 +82,13 @@ class UserService {
             }
 
             logger.info(
-                `[USER_SERVICE] User retrieved successfully with ID: ${userId}`
+                `[USER_SERVICE] User retrieved successfully with ID: ${userId}`,
             );
             return user;
         } catch (error) {
             logger.error(
                 `[USER_SERVICE] Error getting user by ID ${userId}:`,
-                error
+                error,
             );
             throw new APIError(500, "Failed to retrieve user");
         }
@@ -103,7 +99,7 @@ class UserService {
      */
     async getUserByEmail(
         email: string,
-        includeRelations: boolean = false
+        includeRelations: boolean = false,
     ): Promise<User | null> {
         try {
             const user = await db.user.findUnique({
@@ -120,19 +116,19 @@ class UserService {
 
             if (!user) {
                 logger.warn(
-                    `[USER_SERVICE] User not found with email: ${email}`
+                    `[USER_SERVICE] User not found with email: ${email}`,
                 );
                 return null;
             }
 
             logger.info(
-                `[USER_SERVICE] User retrieved successfully with email: ${email}`
+                `[USER_SERVICE] User retrieved successfully with email: ${email}`,
             );
             return user;
         } catch (error) {
             logger.error(
                 `[USER_SERVICE] Error getting user by email ${email}:`,
-                error
+                error,
             );
             throw new APIError(500, "Failed to retrieve user");
         }
@@ -150,7 +146,7 @@ class UserService {
         } catch (error) {
             logger.error(
                 `[USER_SERVICE] Error checking if user exists with email ${email}:`,
-                error
+                error,
             );
             throw new APIError(500, "Failed to check user existence");
         }
