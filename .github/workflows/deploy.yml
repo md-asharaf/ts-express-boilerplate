@@ -1,0 +1,31 @@
+name: Deploy to AWS VM
+
+on:
+    push:
+        branches:
+            - dev
+            - main
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+              with:
+                  ref: ${{ github.ref_name }}
+
+            - name: Install SSH Key
+              uses: webfactory/ssh-agent@v0.7.0
+              with:
+                  ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+            - name: Deploy to AWS VM
+              run: |
+                  ssh -o StrictHostKeyChecking=no ${{ secrets.USERNAME }}@${{ secrets.HOST }} << 'EOF'
+                    cd /home/ubuntu/code
+                    git pull origin ${{ github.ref_name }}
+                    docker compose down
+                    docker compose up -d --build
+                  EOF
