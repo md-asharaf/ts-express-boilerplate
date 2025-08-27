@@ -28,19 +28,22 @@
         "jsonwebtoken": "^9.0.2",
         "module-alias": "^2.2.3",
         "morgan": "^1.10.0",
+        "multer": "^2.0.2",
         "nodemailer": "^7.0.5",
+        "ts-node": "^10.9.2",
         "typescript": "^5.8.3",
         "winston": "^3.17.0",
         "zod": "^3.25.67"
     },
     "devDependencies": {
-        "prisma": "^6.8.2",
-        "nodemon": "^3.1.10",
         "@types/cors": "^2.8.18",
         "@types/express": "^5.0.2",
         "@types/jsonwebtoken": "^9.0.10",
         "@types/module-alias": "^2.0.4",
         "@types/morgan": "^1.9.9",
-        "@types/nodemailer": "^7.0.0"
+        "@types/multer": "^2.0.0",
+        "@types/nodemailer": "^7.0.0",
+        "nodemon": "^3.1.10",
+        "prisma": "^6.8.2"
     }
 }

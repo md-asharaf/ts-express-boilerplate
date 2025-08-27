@@ -31,8 +31,7 @@ const EnvConfigSchema = z.object({
             required_error: "DATABASE_URL environment variable is required",
             invalid_type_error: "DATABASE_URL must be a string",
         })
-        .url("DATABASE_URL must be a valid URL")
-        .optional(),
+        .url("DATABASE_URL must be a valid URL"),
     // GOOGLE_CLIENT_SECRET: z
     // 	.string({
     // 		required_error: "GOOGLE_CLIENT_SECRET environment variable is required",
@@ -52,9 +51,7 @@ const EnvConfigSchema = z.object({
             required_error: "JWT_SECRET environment variable is required",
             invalid_type_error: "JWT_SECRET must be a string",
         })
-        .min(8, "JWT_SECRET must be at least 8 characters long")
-        .optional(),
-
+        .min(8, "JWT_SECRET must be at least 8 characters long"),
     // Session configuration for passport
     SESSION_SECRET: z
         .string({
@@ -89,12 +86,10 @@ const EnvConfigSchema = z.object({
         .default(0),
 
     // SMTP Email configuration
-    SMTP_HOST: z
-        .string({
-            required_error: "SMTP_HOST environment variable is required",
-            invalid_type_error: "SMTP_HOST must be a string",
-        })
-        .default("smtp.gmail.com"),
+    SMTP_HOST: z.string({
+        required_error: "SMTP_HOST environment variable is required",
+        invalid_type_error: "SMTP_HOST must be a string",
+    }),
     SMTP_PORT: z.coerce
         .number({
             required_error: "SMTP_PORT environment variable is required",
@@ -103,18 +98,14 @@ const EnvConfigSchema = z.object({
         .int()
         .positive()
         .default(587),
-    SMTP_USER: z
-        .string({
-            required_error: "SMTP_USER environment variable is required",
-            invalid_type_error: "SMTP_USER must be a string",
-        })
-        .optional(),
-    SMTP_PASSWORD: z
-        .string({
-            required_error: "SMTP_PASSWORD environment variable is required",
-            invalid_type_error: "SMTP_PASSWORD must be a string",
-        })
-        .optional(),
+    SMTP_USER: z.string({
+        required_error: "SMTP_USER environment variable is required",
+        invalid_type_error: "SMTP_USER must be a string",
+    }),
+    SMTP_PASSWORD: z.string({
+        required_error: "SMTP_PASSWORD environment variable is required",
+        invalid_type_error: "SMTP_PASSWORD must be a string",
+    }),
 });
 
 // Define the config type using Zod inference

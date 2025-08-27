@@ -29,7 +29,7 @@ export async function verifyPassword(
 /**
  * One-way hash using SHA-256 (not reversible).
  */
-export function hash(payload: string | object): Promise<string> {
+export function hash(payload: string | object): string {
     const serialized = serializePayload(payload);
     const encrypted = crypto
         .createHash("sha256")

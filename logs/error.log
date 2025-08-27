@@ -1,0 +1,69 @@
+2025-08-27 11:42:49 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:49 [31merror[39m: [PRISMA] : failed to connect database :  Can't reach database server at `localhost:5432`
+
+Please make sure your database server is running at `localhost:5432`.
+2025-08-27 11:42:49 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:49 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:49 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:49 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:50 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:50 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:50 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:51 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:51 [31merror[39m: [EMAIL] Service : Error: Invalid login: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials d9443c01a7336-2466885efeasm113468625ad.81 - gsmtp
+2025-08-27 11:42:51 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:52 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:52 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:53 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:53 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:54 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:55 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:56 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:56 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:57 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:58 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:42:59 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:43:00 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:43:01 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:43:03 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:43:04 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:43:05 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:43:06 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:43:08 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:43:09 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:43:11 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:43:12 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:43:14 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:43:15 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:43:17 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:43:19 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:43:20 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:43:22 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:14 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:14 [31merror[39m: [PRISMA] : failed to connect database :  Can't reach database server at `localhost:5432`
+
+Please make sure your database server is running at `localhost:5432`.
+2025-08-27 11:49:14 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:14 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:14 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:14 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:14 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:15 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:15 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:16 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:16 [31merror[39m: [EMAIL] Service : Error: Invalid login: 535-5.7.8 Username and Password not accepted. For more information, go to
+535 5.7.8  https://support.google.com/mail/?p=BadCredentials d2e1a72fcca58-7720c63d660sm333464b3a.71 - gsmtp
+2025-08-27 11:49:16 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:16 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:17 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:18 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:18 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:19 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:20 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:21 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:21 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:22 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:23 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:24 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
+2025-08-27 11:49:25 [31merror[39m: [REDIS] Failed to connect to Redis. connect ECONNREFUSED 127.0.0.1:6379
